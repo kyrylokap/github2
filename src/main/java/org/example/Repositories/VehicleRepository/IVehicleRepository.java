@@ -1,4 +1,4 @@
-package org.example.Repositories;
+package org.example.Repositories.VehicleRepository;
 
 import org.example.Vehicles.Vehicle;
 
@@ -11,4 +11,6 @@ public interface IVehicleRepository {
     public List<Vehicle> getVehicles() throws CloneNotSupportedException;
     public void save() throws IOException;
     public void load() throws IOException;
+    public void removeVehicle(Vehicle vehicle);
+    public void addVehicle(Vehicle vehicle);
 }

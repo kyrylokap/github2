@@ -1,5 +1,6 @@
-package org.example.Repositories;
+package org.example.Repositories.VehicleRepository;
 
+import org.example.Repositories.VehicleRepository.IVehicleRepository;
 import org.example.Vehicles.Car;
 import org.example.Vehicles.Motorcycle;
 import org.example.Vehicles.Vehicle;
@@ -8,7 +9,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VehicleRepositoryImpl implements IVehicleRepository{
+public class VehicleRepositoryImpl implements IVehicleRepository {
     String path = "lab.csv";
     private final List<Vehicle>vehicles;
     private List<Vehicle>deepCopyVehicles;
@@ -38,6 +39,24 @@ public class VehicleRepositoryImpl implements IVehicleRepository{
         }
         System.out.println("Finished adding to list!");
     }
+
+    @Override
+    public void removeVehicle(Vehicle vehicle) {
+        for(Vehicle v:vehicles){
+            if( v.equals(vehicle)){
+                vehicles.remove(v);
+                System.out.print("Removed vehicle! :");
+                System.out.println(vehicle.toCsv());
+            }
+            break;
+        }
+    }
+
+    @Override
+    public void addVehicle(Vehicle vehicle) {
+        vehicles.add(vehicle);
+    }
+
     @Override
     public void rentVehicle(int index){
         boolean canRent = true;
