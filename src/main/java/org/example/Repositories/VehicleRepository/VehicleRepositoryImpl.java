@@ -1,6 +1,6 @@
 package org.example.Repositories.VehicleRepository;
 
-import org.example.Repositories.VehicleRepository.IVehicleRepository;
+import org.example.Repositories.UserRepositories.User;
 import org.example.Vehicles.Car;
 import org.example.Vehicles.Motorcycle;
 import org.example.Vehicles.Vehicle;
@@ -8,12 +8,17 @@ import org.example.Vehicles.Vehicle;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class VehicleRepositoryImpl implements IVehicleRepository {
     String path = "lab.csv";
     private final List<Vehicle>vehicles;
     private List<Vehicle>deepCopyVehicles;
 
+    public Vehicle getVehicleById(int id){
+        return vehicles.get(id);
+    }
     public VehicleRepositoryImpl(){
         vehicles = new ArrayList<>();
         try {
@@ -37,28 +42,48 @@ public class VehicleRepositoryImpl implements IVehicleRepository {
                 vehicles.add(new Motorcycle(1,v[1],v[2],v[3],v[4],Boolean.parseBoolean(v[5]),v[6]));
             }
         }
-        System.out.println("Finished adding to list!");
     }
 
     @Override
-    public void removeVehicle(Vehicle vehicle) {
-        for(Vehicle v:vehicles){
-            if( v.equals(vehicle)){
-                vehicles.remove(v);
-                System.out.print("Removed vehicle! :");
-                System.out.println(vehicle.toCsv());
-            }
-            break;
+    public void removeVehicle() throws CloneNotSupportedException {
+        getVehiclesToString();
+        System.out.println("Podaj index:");
+        Scanner scanner = new Scanner(System.in);
+        int index = scanner.nextInt();
+        if(vehicles.size() > index && index >= 0){
+            System.out.print("Vehicle removed!");
+            System.out.println(vehicles.get(index).toCsv());
+            vehicles.remove(index);
+        }
+
+    }
+
+    @Override
+    public void addVehicle(){
+        Scanner scanner = new Scanner(System.in);
+        String type = scanner.nextLine();
+        String brand,model, year, price;
+        brand = scanner.nextLine();
+        model = scanner.nextLine();
+        year = scanner.nextLine();
+        price = scanner.nextLine();
+
+        if(type.equals("car")){
+            Car car = new Car(vehicles.size(), brand,model,year,price,false);
+            vehicles.add(car);
+            System.out.print("Dodano ");
+            System.out.println(car.toCsv());
+        }else{
+            String category = scanner.nextLine();
+            Motorcycle motorcycle = new Motorcycle(vehicles.size(), brand,model,year,price,false,category);
+            vehicles.add(motorcycle);
+            System.out.print("Dodano ");
+            System.out.println(motorcycle.toCsv());
         }
     }
 
     @Override
-    public void addVehicle(Vehicle vehicle) {
-        vehicles.add(vehicle);
-    }
-
-    @Override
-    public void rentVehicle(int index){
+    public void rentVehicle(int index, User user){
         boolean canRent = true;
         for(Vehicle vehicle:deepCopyVehicles){
             if(vehicle.isRented()){
@@ -69,16 +94,18 @@ public class VehicleRepositoryImpl implements IVehicleRepository {
         }
         if(canRent && index >= 0){
             deepCopyVehicles.get(index - 1).setRented(true);
+            user.setRentedVehicle(index - 1);
             System.out.println(deepCopyVehicles.get(index - 1).toString() + " rented");
         }
     }
 
     @Override
-    public void returnVehicle(){
+    public void returnVehicle(User user){
         deepCopyVehicles.forEach(vehicle -> {
             if(vehicle.isRented()){
                 vehicle.setRented(false);
-                System.out.println("Vehicle :" + vehicle.toCsv() + " returned");
+                System.out.print("Vehicle returned:" + vehicle.toCsv());
+                user.setRentedVehicle(0);
             }
         });
     }
@@ -90,8 +117,19 @@ public class VehicleRepositoryImpl implements IVehicleRepository {
         for(Vehicle v:vehicles){
             Vehicle vehicle = v.clone();
             vehicleToCopy.add(vehicle);
+
         }
+
         return vehicleToCopy;
+    }
+
+    public void getVehiclesToString() throws CloneNotSupportedException {
+        StringBuilder stringBuilder = new StringBuilder();
+        AtomicInteger ai = new AtomicInteger(0);
+        getVehicles().forEach(vehicle -> {
+            stringBuilder.append(ai.getAndIncrement()).append(". ").append(vehicle.toString()).append("\n");
+        });
+        System.out.println(stringBuilder);
     }
 
     @Override
