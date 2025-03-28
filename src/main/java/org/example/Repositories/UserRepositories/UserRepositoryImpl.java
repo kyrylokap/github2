@@ -1,15 +1,16 @@
 package org.example.Repositories.UserRepositories;
 
-import org.apache.commons.codec.digest.DigestUtils;
+import com.google.gson.reflect.TypeToken;
+import org.example.JsonFileStorage;
+import org.example.models.User;
+import org.mindrot.jbcrypt.BCrypt;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class UserRepositoryImpl implements IUserRepository{
+    JsonFileStorage<User> jsonFileStorage = new JsonFileStorage<>("users.json", new TypeToken<List<User>>(){}.getType());
     private List<User>users = new ArrayList<>();
     @Override
     public String getUsers(){
@@ -21,51 +22,48 @@ public class UserRepositoryImpl implements IUserRepository{
         return stringBuilder.toString();
     }
 
-    public UserRepositoryImpl() throws IOException {
-        addUser(new User("kyrylo", DigestUtils.sha256Hex("qwerty"),"user"));
-        addUser(new User("admin",DigestUtils.sha256Hex("admin"),"admin"));
+    public UserRepositoryImpl(){
         load();
     }
     @Override
     public void addUser(User user){
         users.add(user);
+        jsonFileStorage.save(users);
     }
     @Override
-    public void load() throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("users.csv"));
-        String line;
-        while ((line = br.readLine()) !=  null){
-            String[] v = line.split(",");
-            users.add(new User(v[0],v[1],v[2]));
-        }
+    public void load(){
+        users = jsonFileStorage.load();
     }
     @Override
     public boolean register(User user){
         for(User us:users){
-            if(user.getUsername().equals(us.getUsername())){
+            if(user.getLogin().equals(us.getLogin())){
                 return false;
             }
         }
-        System.out.print("Successfully registered! ");
-        System.out.println(user.toString());
+        user.setId(BCrypt.hashpw(String.valueOf(users.size()), BCrypt.gensalt()));
+        users.add(user);
+        jsonFileStorage.save(users);
+        System.out.print("Rejestracja jest udana! ");
+
         return true;
     }
 
     @Override
     public boolean login(User user){
-        user.setPassword(DigestUtils.sha256Hex(user.getPassword()));
+        System.out.println(user.getPassword());
         for(User user1:users){
-            if (user1.getUsername().equals(user.getUsername())){
+            if (user1.getLogin().equals(user.getLogin())){
                 System.out.println("Znaleziono usera!");
-                if(!user1.getPassword().equals(user.getPassword())){
+                if(!BCrypt.checkpw(user.getPassword(), user1.getPassword())){
                     System.out.println("Niepoprawne haslo!");
                 }else{
-                    if(user1.getUsername().equals("admin")){
+                    if(user1.getRole().equals("ADMIN")){
                         System.out.println("Udalo sie zalogowac sie adminu!");
                         user.setRole("admin");
                     }
                     else {
-                        user.setRole("user");
+                        user.setRole("USER");
                         System.out.println("Udalo sie zalogowac!");
                     }
                     return true;

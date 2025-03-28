@@ -1,5 +1,7 @@
 package org.example.Repositories.UserRepositories;
 
+import org.example.models.User;
+
 import java.io.IOException;
 
 public interface IUserRepository {

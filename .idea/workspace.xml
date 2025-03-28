@@ -5,17 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8d41f41-c65e-4802-bd70-9f8fd345d227" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Repositories/UserRepositories/IUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Repositories/UserRepositories/UserRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Services/Authentication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Services/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rentals.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/InterfaceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/JsonFileStorage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Repositories/RentalRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Services/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/models/Rental.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/models/Vehicle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vehicles.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab.csv" beforeDir="false" afterPath="$PROJECT_DIR$/lab.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Repositories/UserRepositories/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Repositories/UserRepositories/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Repositories/UserRepositories/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Repositories/UserRepositories/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Repositories/UserRepositories/IUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Repositories/UserRepositories/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Repositories/UserRepositories/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Repositories/UserRepositories/UserRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Repositories/VehicleRepository/IVehicleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Repositories/VehicleRepository/IVehicleRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Repositories/VehicleRepository/VehicleRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Repositories/VehicleRepository/VehicleRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users.csv" beforeDir="false" afterPath="$PROJECT_DIR$/users.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Services/Authentication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Vehicles/Car.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Vehicles/Motorcycle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Vehicles/Vehicle.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,10 +60,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Debug",
+    "Application.Main.executor": "Run",
     "JAR Application.untitled-1.0-SNAPSHOT-shaded.jar.executor": "Run",
     "JAR Application.untitled-1.0-SNAPSHOT.jar.executor": "Run",
     "Maven.untitled [clean].executor": "Run",
+    "Maven.untitled [deploy].executor": "Run",
     "Maven.untitled [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
     "Maven.untitled [org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile].executor": "Run",
     "Maven.untitled [org.apache.maven.plugins:maven-deploy-plugin:3.1.1:deploy].executor": "Run",
@@ -71,10 +86,14 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.example.Repositories.UserRepositories" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ydmidny\IdeaProjects\Spring_lab2\untitled\src\main\java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ydmidny\IdeaProjects\Spring_lab2\untitled\src\main\java\org\example" />
       <recent name="C:\Users\ydmidny\IdeaProjects\Spring_lab2\untitled" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -97,6 +116,13 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -108,7 +134,14 @@
       <workItem from="1742402193819" duration="2652000" />
       <workItem from="1742404867582" duration="5425000" />
       <workItem from="1742412381399" duration="1070000" />
-      <workItem from="1742455059299" duration="4467000" />
+      <workItem from="1742455059299" duration="4646000" />
+      <workItem from="1742759811576" duration="19000" />
+      <workItem from="1743007446300" duration="7372000" />
+      <workItem from="1743025971076" duration="2349000" />
+      <workItem from="1743067372498" duration="9835000" />
+      <workItem from="1743141677945" duration="3160000" />
+      <workItem from="1743146011846" duration="2886000" />
+      <workItem from="1743154448607" duration="4635000" />
     </task>
     <servers />
   </component>
@@ -118,22 +151,31 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/Repositories/VehicleRepository/VehicleRepositoryImpl.java</url>
-          <line>15</line>
-          <properties field="vehicles" class="org.example.Repositories.VehicleRepository.VehicleRepositoryImpl" />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/Repositories/VehicleRepository/VehicleRepositoryImpl.java</url>
-          <line>47</line>
-          <properties class="org.example.Repositories.VehicleRepository.VehicleRepositoryImpl" method="removeVehicle">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Repositories/RentalRepository.java</url>
+          <line>51</line>
+          <properties class="org.example.Repositories.RentalRepository" method="returnRental">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="7" />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Repositories/RentalRepository.java</url>
+          <line>37</line>
+          <properties class="org.example.Repositories.RentalRepository" method="findById">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.example.Repositories.VehicleRepository.VehicleRepositoryImpl" memberName="deepCopyVehicles" />
+        <PinnedItemInfo parentTag="org.example.Repositories.VehicleRepository.VehicleRepositoryImpl" memberName="vehicles" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

@@ -1,10 +1,1 @@
-[
-  {"id":"fc6e600b-e89e-42e2-b2b7-ca18edb68924",
-    "login":"lukasz",
-    "password":"$2a$10$7MUYZR8FP8ebLzfqwMK85ejBke/TNp/Yme9NrC0XxRy.NAFde2vEm",
-    "role":"ADMIN"},
-  {"id":"f4b5b79b-df2c-4e0a-89fc-464908d2e6dc",
-    "login":"kamil",
-    "password":"$2a$10$BwY3UtVLQTSUjX3zXjCeJ.h4Gwq4MiLhhTaUC.Yesce7rBDRkdU/i",
-    "role":"USER"}
-]
+[{"id":"$2a$10$b3wW/6HU.NXLUA.M05Qey.gDzmjo9yQQ8smabyqR.EELWCNkj90d2","login":"vv","password":"$2a$10$kKUCmSYIkfdkmZ1BHtbcZO2L.RRKcfYWY67PLEM3iwr1PkxuJ/B.y","role":"USER","rentedVehicle":0},{"id":"$2a$10$0HIp1ZxOg1zoQQWmQIknMe7yoP.Zd8zn0RlDpVgMP8csI/pn8QTHG","login":"kyrylo","password":"$2a$10$lv//WQP11jwlGizpHJ3/ROUNWMAaHWAWkmuYraCP98FRq02ZKbx9a","role":"ADMIN","rentedVehicle":0},{"id":"$2a$10$kiJ8sRg8Sp7hI3dK2r20zumQypFmAsaz0dTF5NWuNaoOabyxAKJyS","login":"kk","password":"$2a$10$BurRneYP2GHf.8rBT1UUWe2vFEoz8VHCczdU4BHivZ3bS7u55a2a.","role":"USER","rentedVehicle":0}]

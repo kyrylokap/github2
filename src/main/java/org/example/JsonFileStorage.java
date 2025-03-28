@@ -1,7 +1,6 @@
-package com.umcsuser.carrent.utils;
+package org.example;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
